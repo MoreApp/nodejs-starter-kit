@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-starter-kit",
+  "version": "1.0.0",
+  "description": "An example project to help MoreApp partners with their first usage of the API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MoreApp/nodejs-starter-kit.git"
+  },
+  "keywords": [
+    "MoreApp",
+    "NodeJS",
+    "API"
+  ],
+  "author": "MoreApp",
+  "bugs": {
+    "url": "https://github.com/MoreApp/nodejs-starter-kit/issues"
+  },
+  "homepage": "https://github.com/MoreApp/nodejs-starter-kit",
+  "dependencies": {
+    "oauth": "^0.9.12"
+  }
+}
