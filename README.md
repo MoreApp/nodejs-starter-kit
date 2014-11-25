@@ -56,5 +56,5 @@ To use the example for your own usage change the file `config.js`.
 
 - The `endpoint` should be `https://api.moreapp.com/api/v1.0`. For the example we the MoreApp develop environment. Please do not use this.  
 - The `salt` property should be changed into the salt that you can acquire in de developer portal under FAQ. 
-- The `consuemerKey` and `consumerSecret` properties should be changed into the correct partner credentials.
+- The `consumerKey` and `consumerSecret` properties should be changed into the correct partner credentials.
 
