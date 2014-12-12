@@ -19,7 +19,7 @@ The example code reads a configuration file from disc.
 var config = require('./config');
 ```
 
-It sets up an client with authorization settings (using the loaded configuration).
+It sets up a client with authorization settings (using the loaded configuration).
 
 ```
 var client = prepareClient(config);
