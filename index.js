@@ -27,7 +27,7 @@ client.get(config.endpoint + '/customers', null, null, function (error, data, re
 
 
 function prepareClient(config) {
-  var hash = makeHash(config.salt, config.consumerSecret);
+  var hash = makeHash(config.salt, config.password);
   return new oauth.OAuth(null, null, config.consumerKey, hash, '1.0', null, 'HMAC-SHA1');
 }
 

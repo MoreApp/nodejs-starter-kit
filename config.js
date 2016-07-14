@@ -7,5 +7,5 @@ module.exports = {
 
   //The credentials for the partner account
   consumerKey : 'partner1',
-  consumerSecret : 'test1234'
+  password : 'test1234'
 };
