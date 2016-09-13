@@ -55,6 +55,6 @@ customers.forEach(function(customer) {
 To use the example for your own usage change the file `config.js`.
 
 - The `endpoint` should be `https://api.moreapp.com/api/v1.0`. For the example we use the MoreApp develop environment. Please do not use this.  
-- The `salt` property should be replaced with the salt that you can acquire in de developer portal under FAQ. 
+- The `salt` property should be replaced with the salt that you can acquire here: https://docs.moreapp.com/#/api/starterkits
 - The `consumerKey` and `password` properties should be changed into the correct partner credentials.
 
