@@ -1,41 +1,23 @@
-var oauth = require('oauth');
-var sha1 = require('./lib/sha1');
+const oauth = require('oauth');
 
-//Load the config
-var config = require('./config');
+// Load the config
+const config = require('./config');
 
-//Prepare the client
-var client = prepareClient(config);
+// Prepare the client
+const client = new oauth.OAuth(null, null, config.consumerKey, config.consumerSecret, '1.0', null, 'HMAC-SHA1');
 
-//Make the API Call (get all customers)
-client.get(config.endpoint + '/customers', null, null, function (error, data, res) {
-  if (res) {
-    console.log("The response status is: " + res.statusCode);
-  }
-  if (error) {
-    console.log("Something went wrong please check the credentials and the API endpoint");
+// Make the API Call (get all customers)
+client.get(config.endpoint + '/customers', null, null, (err, data, res) => {
+  if (err) {
+    console.error("Something went wrong, please check the credentials and the API endpoint:");
+    console.error(JSON.parse(err.data));
     return;
   }
 
-  //Print the result
-  var customers = JSON.parse(data);
+  // Print the result
+  const customers = JSON.parse(data);
   console.log("The customers are:");
-  customers.forEach(function(customer) {
+  customers.forEach((customer) => {
     console.log(" - " + customer.name);
   });
 });
-
-
-function prepareClient(config) {
-  var hash = makeHash(config.salt, config.password);
-  return new oauth.OAuth(null, null, config.consumerKey, hash, '1.0', null, 'HMAC-SHA1');
-}
-
-//Function to salt the password and hash the password using a SHA-1
-function makeHash(salt, secret) {
-  return sha1.hex_sha1(
-      salt.substr(0, Math.ceil(salt.length / 2)) +
-      secret +
-      salt.substr(Math.ceil(salt.length / 2))
-  );
-}

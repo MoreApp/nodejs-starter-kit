@@ -1,11 +1,9 @@
 module.exports = {
-// You can change this to the production API: 'api.moreapp.com/api/v1.0'
-  endpoint : 'https://api.develop.moreapp.com/api/v1.0',
+  endpoint: 'https://api.moreapp.com/api/v1.0',
 
-  //The salt for the production environment can be acquired in the developer portal. 'https://developer.moreapp.com'
-  salt : 'testSalt',
+  // Use your username for the 'consumerKey'
+  consumerKey: '<YOUR_CONSUMER_KEY>',
 
-  //The credentials for the partner account
-  consumerKey : 'partner1',
-  password : 'test1234'
+  // Generate the 'consumerSecret' at https://docs.moreapp.com/#/api/authentication
+  consumerSecret: '<YOUR_CONSUMER_SECRET>'
 };
