@@ -1,23 +1,30 @@
-const oauth = require('oauth');
-
-// Load the config
+const unirest = require('unirest');
 const config = require('./config');
 
-// Prepare the client
-const client = new oauth.OAuth(null, null, config.consumerKey, config.consumerSecret, '1.0', null, 'HMAC-SHA1');
+const req = unirest('GET', `${config.endpoint}/api/v1.0/forms/customer/${config.customerId}/folders?expand=forms`);
 
-// Make the API Call (get all customers)
-client.get(config.endpoint + '/customers', null, null, (err, data, res) => {
-  if (err) {
-    console.error("Something went wrong, please check the credentials and the API endpoint:");
-    console.error(JSON.parse(err.data));
-    return;
+req.headers({
+  'X-Api-Key': config.apiKey
+});
+
+req.end((res) => {
+  if (res.error) {
+    if (res.body && res.body.message) {
+      console.error(`Request failed: (${res.status}) ${res.body.message}`);
+      return;
+    } else {
+      throw new Error(res.error);
+    }
   }
 
-  // Print the result
-  const customers = JSON.parse(data);
-  console.log("The customers are:");
-  customers.forEach((customer) => {
-    console.log(" - " + customer.name);
+  const folders = res.body;
+
+  console.log(`Folders (and forms) for customer ${config.customerId}:`);
+  folders.forEach((folder) => {
+    console.log(folder.meta.name);
+
+    folder.forms.forEach((form) => {
+      console.log(` - ${form.meta.name}`);
+    });
   });
 });
