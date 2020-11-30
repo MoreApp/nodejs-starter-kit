@@ -4,7 +4,7 @@ An example project to help you connect to the MoreApp API.
 
 ## Run
 
-Change the `consumerKey` and `consumerSecret` in the `config.js` file and run;
+Change the `apiKey` and `customerId` fields in `config.js` and run;
 
 ```
 npm install
